@@ -1,5 +1,6 @@
 package com.iota.iri.service.tipselection.impl;
 
+import com.iota.iri.conf.Config;
 import com.iota.iri.conf.TipSelConfig;
 import com.iota.iri.controllers.ApproveeViewModel;
 import com.iota.iri.model.Hash;

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.iota.iri.*;
 import com.iota.iri.conf.APIConfig;
 import com.iota.iri.conf.ConsensusConfig;
+import com.iota.iri.contracts.Contracts;
 import com.iota.iri.controllers.AddressViewModel;
 import com.iota.iri.controllers.BundleViewModel;
 import com.iota.iri.controllers.TagViewModel;
@@ -532,7 +533,8 @@ public class API {
     }
 
     public boolean invalidSubtangleStatus() {
-        return (instance.milestoneTracker.latestSolidSubtangleMilestoneIndex == milestoneStartIndex);
+        return false;
+        //return (instance.milestoneTracker.latestSolidSubtangleMilestoneIndex == milestoneStartIndex);
     }
 
     /**
@@ -629,7 +631,7 @@ public class API {
     }
     
     List<Hash> getTransactionToApproveTips(int depth, Optional<Hash> reference) throws Exception{
-        if (invalidSubtangleStatus()) {
+        if (!testNet && invalidSubtangleStatus()) {
             throw new IllegalStateException("This operations cannot be executed: The subtangle has not been updated yet.");
         }
         
@@ -674,6 +676,7 @@ public class API {
             Converter.trits(trytesPart, txTrits, 0);
             final TransactionViewModel transactionViewModel = instance.transactionValidator.validateTrits(txTrits,
                     instance.transactionValidator.getMinWeightMagnitude());
+            log.info((transactionViewModel.getTagValue().toString()));
             elements.add(transactionViewModel);
         }
         for (final TransactionViewModel transactionViewModel : elements) {

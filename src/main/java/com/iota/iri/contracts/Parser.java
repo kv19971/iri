@@ -15,12 +15,13 @@ public class Parser {
 
     public String getResult(String ternContractCode) {
         String contractCode = Converter.getStringFromTrytes(ternContractCode);
-        return Integer.toString(getSumFromString(contractCode));
+        return contractCode;
+        //return Integer.toString(getSumFromString(contractCode));
     }
 
-    private Integer getSumFromString(String s) {
+    private Integer getSumFromString(String str) {
 
-        String [] splits = s.split(" ");
+        String [] splits = str.split(" ");
         int sum = 0;
         for(String s: splits){
             sum += Integer.parseInt(s);
