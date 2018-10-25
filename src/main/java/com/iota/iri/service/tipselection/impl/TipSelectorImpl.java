@@ -94,9 +94,9 @@ public class TipSelectorImpl implements TipSelector {
             tips.add(tip);
 
             //validate
-            if (!ledgerValidator.checkConsistency(tips)) {
+            /*if (!ledgerValidator.checkConsistency(tips)) {
                 throw new IllegalStateException(TIPS_NOT_CONSISTENT);
-            }
+            }*/
 
             return tips;
         } finally {

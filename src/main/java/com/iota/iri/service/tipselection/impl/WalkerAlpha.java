@@ -51,9 +51,9 @@ public class WalkerAlpha implements Walker {
 
     @Override
     public Hash walk(Hash entryPoint, UnIterableMap<HashId, Integer> ratings, WalkValidator walkValidator) throws Exception {
-        if (!walkValidator.isValid(entryPoint)) {
-            throw new IllegalStateException("entry point failed consistency check: " + entryPoint.toString());
-        }
+//        if (!walkValidator.isValid(entryPoint)) {
+//            throw new IllegalStateException("entry point failed consistency check: " + entryPoint.toString());
+//        }
         
         Optional<Hash> nextStep;
         Deque<Hash> traversedTails = new LinkedList<>();
